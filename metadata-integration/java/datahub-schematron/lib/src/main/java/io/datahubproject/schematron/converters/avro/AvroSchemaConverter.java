@@ -368,7 +368,7 @@ public class AvroSchemaConverter implements SchemaConverter<Schema> {
               elementSchema.getDoc() != null ? elementSchema.getDoc() : field.doc(),
               null // TODO: What is the default value for an array element?
               );
-      processField(elementField, fieldPath, defaultNullable, fields, isNullable, arrayDataHubType);
+      processField(elementField, fieldPath, defaultNullable, fields, true, arrayDataHubType);
     }
   }
 
@@ -416,7 +416,7 @@ public class AvroSchemaConverter implements SchemaConverter<Schema> {
               .clonePlus(
                   new FieldElement(
                       Collections.singletonList("map"), new ArrayList<>(), null, null));
-      processField(valueField, valueFieldPath, defaultNullable, fields, isNullable, mapDataHubType);
+      processField(valueField, valueFieldPath, defaultNullable, fields, true, mapDataHubType);
     }
   }
 
